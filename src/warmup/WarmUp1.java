@@ -10,14 +10,13 @@ public class WarmUp1 {
 	 * greaterThan100(60) --> false
 	 */
 	public static boolean greaterThan100(int num) {
-		
-		boolean returnValue = false; //Definition einer Variable, die spaeter zurückgegeben werden soll (return)
+
+		boolean returnValue = false; //Definition einer Variable, die spaeter zur�ckgegeben werden soll (return)
 		if(num > 100) {
 			returnValue = true; //num ist groesser als 100, also wird returnValue auf true gesetzt
 		} else {
 			returnValue = false; //in allen anderen Faellen ist num kleiner als 100, also wird returnValue auf false gesetzt
 		}
-		
 		return returnValue; //zum Schluss muss returnValue (also das Ergebnis) mittels return-Anweisung zurückgegeben werden
 	}
 	
