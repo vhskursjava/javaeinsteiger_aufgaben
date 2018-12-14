@@ -8,7 +8,9 @@ public class LoopsExtensions {
 		System.out.println(uebung1(5, 20));
 		System.out.println(uebung1(-10, 10));
 		System.out.println("-- Testausgaben der Methode uebung2 --");
-		//Füge hier evtl. weitere Testausgaben weiterer Methoden ein
+		System.out.println(uebung2(0, 100));
+		System.out.println(uebung2(10, 5));
+		System.out.println(uebung2(5, 10));
 	}
 
 	public static String uebung1(int von, int bis) {
@@ -22,8 +24,19 @@ public class LoopsExtensions {
 	}
 	
 	public static int uebung2(int von, int bis) {
-		//TODO implementiere die methode richtig!
-		return -1; //Das ist nur ein Dummy-Wert; Überschreibe dieses return-Statement mit einem korrekten!
+		if(von > bis) {
+			int tmp = von;
+			von = bis;
+			bis = tmp;
+		}
+		
+		int addVonEinsBisHundert = 0;
+		int index2 = von;
+		while(index2 <= bis) {
+			addVonEinsBisHundert = addVonEinsBisHundert + index2;
+			index2++;
+		}
+		return addVonEinsBisHundert;
 	}
 	
 	//TODO füge hier die weiteren methoden uebung3 und uebung4 hinzu
