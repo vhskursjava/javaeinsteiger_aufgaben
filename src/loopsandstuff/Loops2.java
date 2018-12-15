@@ -21,6 +21,25 @@ public class Loops2 {
 		System.out.println();
 		
 		System.out.println("reversedString: " + ReverseString("Hallo ich bin Marvin"));
+		
+		System.out.println("max: " + maxInt(intArray));
+		System.out.println("max: " + maxInt(intArray2));
+		System.out.println("max: " + maxInt(intArray3));
+		
+		System.out.println("min: " + minInt(intArray));
+		System.out.println("min: " + minInt(intArray2));
+		System.out.println("min: " + minInt(intArray3));
+		
+		int[] sorted1 = SortArray(intArray);
+		for (int i = 0; i < sorted1.length; i++) {
+			System.out.print(" " + sorted1[i]);
+		}
+		System.out.println();
+		int[] sorted2 = SortArray(intArray2);
+		for (int i = 0; i < sorted2.length; i++) {
+			System.out.print(" " + sorted2[i]);
+		}
+		System.out.println();
 	}
 	
 	/**
@@ -75,7 +94,16 @@ public class Loops2 {
 	 * @return Maximalwert auf dem array
 	 */
 	public static int maxInt(int[] array) {
-		return -1;
+		if(array == null || array.length <= 0) {
+			throw new IllegalArgumentException();
+		}
+		
+		int max = array[0]; //Weise max den ersten Wert aus dem Array zu
+		for (int i = 1; i < array.length; i++) {
+			max = max < array[i] ? array[i] : max; //Check, ob größerer Wert gefunden wurde als max
+		}
+		
+		return max;
 	}
 	
 	/**
@@ -84,7 +112,16 @@ public class Loops2 {
 	 * @return Minimalwert auf dem array
 	 */
 	public static int minInt(int[] array) {
-		return -1;
+		if(array == null || array.length <= 0) {
+			throw new IllegalArgumentException();
+		}
+		
+		int min = array[0]; //Weise min den ersten Wert aus dem Array zu
+		for (int i = 1; i < array.length; i++) {
+			min = min > array[i] ? array[i] : min; //Check, ob kleinerer Wert gefunden wurde als min
+		}
+		
+		return min;
 	}
 	
 	/**
@@ -94,7 +131,19 @@ public class Loops2 {
 	 * @return das aufsteigend sortierte Array
 	 */
 	public static int[] SortArray(int[] array) {
-		return null;
+		int[] sorted = array.clone();
+		
+		for (int i = 0; i < sorted.length-1; i++) {
+			for (int j = 0; j < sorted.length-1; j++) {
+				if(sorted[j+1] < sorted[j]) {
+					int tmp = sorted[j];
+					sorted[j] = sorted[j+1];
+					sorted[j+1] = tmp;
+				}
+			}
+		}
+		
+		return sorted;
 	}
 
 }
